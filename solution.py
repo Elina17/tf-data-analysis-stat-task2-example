@@ -12,5 +12,5 @@ def solution(p: float, x: np.array) -> tuple:
     # Не меняйте название функции и её аргументы
     alpha = 1 - p
     a = 0.035
-    return a + (x.max() - a)/(1 - (alpha / 2)**(1./len(x))), \
-           a + (x.max() - a)/(1 - (1 - alpha / 2)**(1./len(x)))
+    return a + (x.max() - a)/(1 - uniform.ppf(alpha / 2)), \
+           a + (x.max() - a)/(1 - uniform.ppf(1 - alpha / 2))
